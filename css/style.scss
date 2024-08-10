@@ -256,7 +256,6 @@ body {
 //----------------------------------
 .cards {
     @include flex_justifycontent_alignitems_gap(center, center, pass);
-    flex-direction: column;
     margin-top: 97px;
     margin-bottom: 95px;
     &__div {
