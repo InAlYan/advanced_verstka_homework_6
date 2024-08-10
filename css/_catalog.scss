@@ -1,0 +1,258 @@
+
+
+//----------------------------------
+.filters {
+    @include flex_justifycontent_alignitems_gap(flex-start, flex-start, ($contentWidth + $cardsGap) / 3);
+    padding-top: 51px;
+    padding-bottom: 64px;
+    & summary::marker {
+        content: '';
+    }
+    .menu {
+        position:absolute;
+        box-sizing: border-box;
+        & > summary {
+            @include flex_justifycontent_alignitems_gap(start, center, 11px);
+            margin-bottom: 16px;
+        }
+        &__filter-icon-max {
+            display: none;
+        }
+        &[open] {
+            width: $cardWidth;
+            padding: 13px 16px 16px;
+            margin-top: -13px;
+            background-color: #fff;
+            color: $selectedColor;
+            box-shadow: 6px 4px 35px 0px #EBEBEB;
+            & path {
+                fill: $selectedColor;
+            }
+        }
+        &__absolute {
+            @include font_weight_size_height_color (600, 14px, 17px, pass);
+            &[open]{
+                & path {
+                    fill: $selectedColor;
+                }
+            }
+        }
+        &__level1 {
+            margin-bottom: 18px;
+            &:last-child {
+                margin-bottom: 0px;
+            }
+            & summary {
+                border-left: solid 5px $selectedColor;
+                border-bottom: solid 1px #EBEBEB;
+                padding: 8px 0px 11px 11px;
+                color: #6F6E6E;
+            }
+            &[open] {
+                margin-bottom: 0px;
+                & summary {
+                    border-bottom: solid 1px $selectedColor;
+                    color: $selectedColor;
+                    margin-bottom: 24px;
+                }
+            }
+        }
+        &__level1-link {
+            display: block;
+            @include font_weight_size_height_color (400, 14px, 17px, #6F6E6E);
+            padding-left: 34px;
+            padding-bottom: 11px;
+            &:last-child {
+                padding-bottom: 24px;
+            }
+            &:first-child {
+                padding-bottom: 24px;
+            }
+            transition: color $hoverTransitionDelay;
+            &:hover {
+                color: $specificColor;
+            }
+        }
+    }
+    &__items {
+        @include flex_justifycontent_alignitems_gap(space-between, center, 28px);
+        & summary {
+            @include font_weight_size_height_color (400, 14px, 17px, #6F6E6E);
+            @include flex_justifycontent_alignitems_gap (center, center, 10px);
+            margin-bottom: 9px;
+        }
+    }
+    &__checkboxes {
+        position:absolute;
+        @include font_weight_size_height_color (400, 14px, 16px, #6F6E6E);
+        background-color: #fff;
+        box-shadow: 6px 4px 35px 0px #EBEBEB;
+        padding: 7px 9px 11px 9px;
+        @include flex_justifycontent_alignitems_gap (center, flex-start, 6px);
+        flex-direction: column;
+        & input {
+            margin-right: 9px;
+        }
+    }
+}
+
+//----------------------------------
+.cards-catalog {
+    @include flex_justifycontent_alignitems_gap(center, center, 48px);
+    flex-direction: column;
+    &__div {
+        @include flex_justifycontent_alignitems_gap(center, center, $cardsGap);
+    }
+
+    .card {
+        width: $cardWidth;
+        height: 587px;
+        background-color: #F8F8F8;
+        &__description {
+            padding: 24px 16px;
+        }
+        &__title {
+            @include font_weight_size_height_color(bold, 13px, 16px, black);
+            margin-bottom: 12px;
+            display: block;
+            transition: color $hoverTransitionDelay;
+            &:hover {
+                color: $specificColor;
+            }
+        }
+        &__info {
+            @include font_weight_size_height_color(300, 14px, 17px, #5D5D5D);
+            margin-bottom: 18px;
+        }
+        &__price {
+            @include font_weight_size_height_color(400, 16px, 19px, $specificColor);
+        }
+    }
+
+    &__pagination {
+        margin-bottom: 96px;
+        padding: 12px 15px;
+        border: solid 1px #EBEBEB;
+        & svg:hover path {
+            transition: fill $hoverTransitionDelay;
+            fill: $selectedColor;
+        }
+    }
+    &__page {
+        @include font_weight_size_height_color(300, 16px, 19px, #C4C4C4);
+        &_selected {
+            color: $selectedColor;
+        }
+    }
+    &__list {
+        display: inline-block;
+        list-style-type: none;
+    }
+    &__list-item {
+        display: inline;
+        padding-left: 18px;
+        &:last-child {
+            padding-right: 18px;
+        }
+        &_hide {
+            display: none;
+        }
+        &_zero-right-padding {
+            padding-right: 0px;
+        }
+        &_zero-left-padding {
+            padding-left: 0px;
+        }
+    }
+}
+
+// 768px - 1024px //
+@media (max-width: 1139px) and (min-width: 768px) {
+
+    //----------------------------------
+    .filters {
+        padding-top: 24px;
+        padding-bottom: 40px;
+        justify-content: space-between;
+    }
+
+    //----------------------------------
+    .cards-catalog {
+        gap: 40px;
+
+        &__div {
+            gap: 16px;
+        }
+
+        .card {
+            &_card3 {
+                display: none;
+            }
+        }
+
+        &__pagination {
+            margin-bottom: 63px;
+        }
+    }
+
+}
+
+// менее 767px //
+@media (max-width: 767px) {
+
+    //----------------------------------
+    .filters {
+        @include flex_justifycontent_alignitems_gap(space-between, flex-start, 0px);
+        padding-top: 24px;
+        padding-bottom: 40px;
+
+        .menu {
+            & > summary {
+                & > span {
+                    display: none;
+                }
+            }
+            &__filter-icon-mini {
+                display: none;
+            }
+            &__filter-icon-max {
+                display: block;
+            }
+            &[open] {
+                width: $contentWidthIPhone;
+            }
+        }
+        &__items {
+            gap: 24px;
+            & summary {
+                @include font_weight_size_height_color (400, 12px, 14px, #6F6E6E);
+                gap: 9px;
+            }
+        }
+    }
+
+    //----------------------------------
+    .cards-catalog {
+        flex-direction: row;
+        gap: 40px;
+        &__div {
+            gap: $cardsGapTablet;
+        }
+
+        .card {
+            width: $contentWidthIPhone;
+            & > img {
+                width: $contentWidthIPhone;
+            }
+            &_card3 {
+                display: none;
+            }
+        }
+
+        &__pagination {
+            margin-bottom: 64px;
+        }
+    }
+
+
+}

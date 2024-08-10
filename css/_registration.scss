@@ -1,0 +1,114 @@
+
+
+//----------------------------------
+.registration {
+    @include flex_justifycontent_alignitems_gap(space-between, flex-start, 128px);
+    padding-top: 64px;
+    padding-bottom: 96px;
+
+    .reg-form {
+        width: $cardWidth;
+        @include flex_justifycontent_alignitems_gap(center, flex-start, 20px);
+        flex-direction: column;
+        & > input {
+            width: $cardWidth;
+            padding-top: 13px;
+            padding-bottom: 16px;
+            padding-left: 17px;
+            box-sizing: border-box;
+            outline: none;
+            border: solid 1px #A4A4A4;
+            @include font_weight_size_height_color(300, 13px, 16px, #222222);
+            &::placeholder {
+                @include font_weight_size_height_color(300, 13px, 16px, #B1B1B1); ////
+            }
+        }
+        &__fio {
+            @include font_weight_size_height_color(300, 16px, 19px, #222);
+        }
+        &__login-details {
+            @include font_weight_size_height_color(300, 16px, 19px, #222);
+        }
+        &__radio {
+            @include flex_justifycontent_alignitems_gap(center, center, 10px);
+            margin-top: 11px;
+            margin-bottom: 13px;
+            color: black;
+        }
+        &__label {
+            margin-right: 10px;
+            @include font_weight_size_height_color(300, 11px, 13px, #222);
+        }
+        &__hint {
+            @include font_weight_size_height_color(300, 13px, 16px, #B1B1B1);
+            margin-top: -5px;
+            margin-bottom: 19px;
+        }
+        &__button {
+            padding: 16px 30px;
+            color: white;
+            background-color: $specificColor;
+            border: none;
+            @include flex_justifycontent_alignitems_gap(center, center, 20px);
+            transition: background-color $hoverTransitionDelay;
+            &:hover {
+                background-color: $selectedColor;
+            }
+        }
+    }
+    &__notes {
+        @include flex_justifycontent_alignitems_gap(flex-start,  flex-start, 22px);
+        flex-direction: column;
+        @include font_weight_size_height_color(300, 24px, 29px, #000);
+        max-width: 652px;
+    }
+    &__title {
+        @include font_weight_size_height_color(300, 24px, 29px, #000);
+    }
+    &__list {
+        list-style-type: none;
+        list-style-position: inside;
+    }
+    &__item {
+        padding-bottom: 16px;
+        display: flex;
+        &::before {
+            padding-right:22px;
+            content: '✓';
+        }
+    }
+    &__span {
+        display: inline-block;
+    }
+}
+
+// 768px - 1024px //
+@media (max-width: 1139px) and (min-width: 768px) {
+
+    //---------------------------------- ok
+    .registration {
+        gap: 22px;
+        padding-top: 40px;
+        &__notes {
+            @include font_weight_size_height_color(300, 16px, 19px, #000);
+            flex-grow: 1;
+            flex-basis: 354px;
+        }
+        &__title {
+            @include font_weight_size_height_color(300, 16px, 19px, #000);
+            padding-bottom: 10px;
+        }
+    }
+
+}
+
+// менее 767px //
+@media (max-width: 767px) {
+
+    //----------------------------------
+    .registration {
+        @include flex_justifycontent_alignitems_gap(center, center, 40px);
+        padding-top: 40px;
+    }
+
+}

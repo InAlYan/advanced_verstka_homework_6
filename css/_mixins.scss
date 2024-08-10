@@ -1,0 +1,28 @@
+@mixin flex_justifycontent_alignitems_gap($jc: pass, $ai: pass, $g: pass) {
+    display: flex;
+    flex-wrap: wrap;
+    @if $jc != pass {
+        justify-content: $jc;
+    };
+    @if $ai != pass {
+        align-items: $ai;
+    };
+    @if $g != pass {
+        gap: $g;
+    };
+}
+
+@mixin font_weight_size_height_color($fw: pass, $fs: pass, $fh: pass, $col: pass) {
+    @if $fw != pass {
+        font-weight: $fw;
+    };
+    @if $fs != pass {
+        font-size: $fs;
+    };
+    @if $fh != pass {
+        line-height: $fh;
+    };
+    @if $col != pass {
+        color: $col;
+    };
+}

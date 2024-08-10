@@ -1,0 +1,269 @@
+
+
+//----------------------------------
+.shopping {
+    padding-top: 96px;
+    padding-bottom: 128px;
+    @include flex_justifycontent_alignitems_gap(space-between, flex-start, pass);
+
+    &__cards {
+        @include flex_justifycontent_alignitems_gap(center, center, 40px);
+        flex-direction: column;
+    }
+    .card {
+        box-shadow: $boxShadow;
+        @include flex_justifycontent_alignitems_gap(center, flex-start, pass);
+        @include font_weight_size_height_color(400, 22px, 27px, #575757);
+        position: relative;
+        &__description {
+            margin: 22px 97px 62px 31px;
+            width: 262px;
+            & input {
+                text-align: center;
+            }
+        }
+        &__close {
+            position: absolute;
+            right: 22px;
+            top: 28px;
+            & path {
+                transition: fill $hoverTransitionDelay;
+            }
+            &:hover path{
+                fill: $specificColor;
+            }
+        }
+        &__link {
+            display: inline-block;
+            padding-bottom: 42px;
+            width: 262px;
+            @include font_weight_size_height_color(400, 24px, 29px, #222);
+            transition: color $hoverTransitionDelay;
+            &:hover {
+                color: $specificColor;
+            }
+        }
+        &__specifications {
+            padding-bottom: 5px;
+        }
+        &__price {
+            @include flex_justifycontent_alignitems_gap(flex-start, center, pass);
+        }
+        &__price-value {
+            padding-left: 5px;
+            padding-right: 5px;
+            color: $selectedColor;
+        }
+        &__color {
+            @include flex_justifycontent_alignitems_gap(flex-start, center, pass);
+        }
+        &__color-value {
+            padding-left: 5px;
+            padding-right: 5px;
+            color: #6F6E6E;
+        }
+        &__size {
+            @include flex_justifycontent_alignitems_gap(flex-start, center, pass);
+        }
+        &__size-value {
+            padding-left: 5px;
+            padding-right: 5px;
+            color: #6F6E6E;
+        }
+        &__quantity {
+            @include flex_justifycontent_alignitems_gap(flex-start, center, pass);
+        }
+        &__quantity-value {
+            @include font_weight_size_height_color(400, 18px, 22px, #656565);
+            width: 44px;
+            margin-left: 28px;
+            border: solid 1px #EAEAEA;
+        }
+
+    }
+    &__buttons {
+        width: 100%;
+        @include flex_justifycontent_alignitems_gap(space-between, center, pass);
+        margin-top: 32px;
+    }
+    &__button {
+        @include font_weight_size_height_color(300, 14px, 17px, black);
+        padding: 16px 40px;
+        background-color: transparent;
+        border: solid 1px #A4A4A4;
+        transition-property: color, background-color;
+        &:hover {
+            transition: $hoverTransitionDelay;
+            color: white;
+            background-color: #6F6E6E;
+        }
+    }
+
+    .form {
+        @include flex_justifycontent_alignitems_gap(center, flex-start, 57px);
+        flex-direction: column;
+
+        padding-top: 17px;
+
+        &__inputs {
+            @include flex_justifycontent_alignitems_gap(space-between, flex-start, 20px);
+            flex-direction: column;
+            & > input {
+                width: 360px;
+                height: 45px;
+                padding-top: 13px;
+                padding-bottom: 16px;
+                padding-left: 17px;
+                box-sizing: border-box;
+                outline: none;
+                @include font_weight_size_height_color(300, 13px, 16px, #222);
+                &::placeholder {
+                    @include font_weight_size_height_color(300, 13px, 16px, #B1B1B1); ////
+                }
+            }
+        }
+        &__title {
+            @include font_weight_size_height_color(300, 16px, 19px, #222);
+        }
+        &__getbutton {
+            background-color: transparent;
+            padding: 10px 14px 12px 15px;
+            border: solid 1px #A4A4A4;
+            @include font_weight_size_height_color(300, 11px, 13px, #4A4A4A);
+            transition: all $hoverTransitionDelay;
+            &:hover {
+                color:white;
+                background-color: #6F6E6E;
+            }
+        }
+        &__total {
+            background-color: #F5F3F3;
+            padding: 39px 34px 42px 44px;
+            box-sizing: border-box;
+            @include flex_justifycontent_alignitems_gap(center, flex-end, pass);
+            flex-direction: column;
+        }
+        &__total-cost {
+            padding-bottom: 12px;
+            @include font_weight_size_height_color(400, 11px, 13px, #4A4A4A);
+            &_value {
+                padding-left: 30px;
+            }
+        }
+        &__grandcost {
+            padding-bottom: 21px;
+            padding-right: 3px;
+            @include font_weight_size_height_color(300, 16px, pass, #222);
+        }
+        &__grandcost-value {
+            padding-left: 30px;
+            @include font_weight_size_height_color(700, 16px, pass, $specificColor);
+        }
+        &__divider {
+            border-top: solid 1px #E2E2E2;
+        }
+        &__button {
+            width: 273px;
+            padding: 16px 41px;
+            margin-top: 17px;
+            border: none;
+            background-color: $specificColor;
+            @include font_weight_size_height_color(300, 16px, 19px, white);
+            transition: background-color $hoverTransitionDelay;
+            &:hover {
+                background-color: $selectedColor;
+            }
+        }
+    }
+}
+
+// 768px - 1024px //
+@media (max-width: 1139px) and (min-width: 768px) {
+
+    //----------------------------------
+    .shopping {
+        @include flex_justifycontent_alignitems_gap(center, flex-start, 64px);
+
+        .card {
+            position: relative;
+            &__description {
+                margin-right: 179px;
+            }
+            &__close {
+                right: 24px;
+            }
+        }
+        &__buttons {
+            @include flex_justifycontent_alignitems_gap(center, center, 48px);
+            margin-top: 22px;
+        }
+
+        .form {
+            padding-top: 0px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0px;
+            width: 100%;
+        }
+    }
+
+}
+
+// менее 767px //
+@media (max-width: 767px) {
+
+    //----------------------------------
+    .shopping {
+        padding-top: 39px;
+        padding-bottom: 96px;
+        @include flex_justifycontent_alignitems_gap(center, center, 48px);
+
+        &__cards {
+            gap: 32px;
+        }
+        .card {
+            @include font_weight_size_height_color(400, 14px, 17px, #575757);
+            flex-wrap: nowrap;
+            & > img {
+                width: 144px;
+                height: 188px;
+            }
+            &__description {
+                margin: 13px 53px 34px 17px;
+                width: 144px;
+            }
+            &__close {
+                right: 12px;
+                top: 17px;
+            }
+            &__link {
+                @include font_weight_size_height_color(400, 16px, 19px, #222);
+                padding-bottom: 26px;
+                width: auto;
+            }
+            &__specifications {
+                padding-bottom: 0px;
+            }
+            &__quantity-value {
+                @include font_weight_size_height_color(400, 10px, 12px, #656565);
+                width: 24px;
+                margin-left: 15px;
+            }
+        }
+
+        &__buttons {
+            @include flex_justifycontent_alignitems_gap(space-between, center, pass);
+        }
+        &__button {
+                @include font_weight_size_height_color(400, 12px, 14px, #575757);
+            padding: 9px 18px;
+        }
+
+        .form {
+            @include flex_justifycontent_alignitems_gap(center, center, 48px);
+            flex-direction: column;
+        }
+    }
+
+}
